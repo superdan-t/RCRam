@@ -21,7 +21,7 @@ public:
 			console->clearCallback(console);
 		}
 		else {
-			*(console->out) << "[built-in] clear: No options expected" << std::endl;
+			*(console->err) << "[built-in] clear: No options expected" << std::endl;
 		}
 	};
 	std::string getHelp() override {
@@ -68,19 +68,19 @@ void defaultClearCallback(Console* console) {
 void defaultInputErrorCallback(Console* console, InputError error, std::string& badInput) {
 	switch (error) {
 	case ESCAPE_UNRECOGNIZED:
-		*(console->out) << "'\\" << badInput << "'" << ": invalid escape sequence" << std::endl;
+		*(console->err) << "'\\" << badInput << "'" << ": invalid escape sequence" << std::endl;
 		break;
 	case NO_COMMAND:
-		*(console->out) << badInput << ": command not found" << std::endl;
+		*(console->err) << badInput << ": command not found" << std::endl;
 		break;
 	case NOT_IMPLEMENTED:
-		*(console->out) << badInput << ": built-in command not implemented" << std::endl;
+		*(console->err) << badInput << ": built-in command not implemented" << std::endl;
 		break;
 	default:
 		if (badInput.length() != 0) {
-			*(console->out) << badInput << ": ";
+			*(console->err) << badInput << ": ";
 		}
-		*(console->out) << "invalid input (no reason provided)" << std::endl;
+		*(console->err) << "invalid input (no reason provided)" << std::endl;
 	}
 }
 

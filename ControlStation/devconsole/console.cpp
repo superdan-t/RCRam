@@ -9,8 +9,9 @@
 
 namespace ctrl {
 
-Console::Console(std::ostream* out) {
+Console::Console(std::ostream* out, std::ostream* err) {
 	this->out = out;
+	this->err = err;
 	clearCallback = &defaultClearCallback;
 	inputErrorCallback = &defaultInputErrorCallback;
 	registerCommand(new BuiltinClear);

@@ -13,9 +13,10 @@ namespace ctrl {
 
 class Console {
 public:
-	Console(std::ostream* out);
-	Console() : Console(&std::cout) {};
+	Console(std::ostream* out, std::ostream* err);
+	Console() : Console(&std::cout, &std::cerr) {};
 	std::ostream* out;
+	std::ostream* err;
 	void registerCommand(Command* cmd);
 	void removeCommand(Command& cmd);
 	void removeCommand(std::string name);
