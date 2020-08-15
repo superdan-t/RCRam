@@ -16,6 +16,8 @@ constexpr char EOT = 0x04;
 
 class Message {
 public:
+    Message(const char* typeName, char* data, size_t dataLen);
+    Message() : Message(nullptr, nullptr, 0) {};
 	char* data;
 	const char* typeName;
 	size_t dataLen;

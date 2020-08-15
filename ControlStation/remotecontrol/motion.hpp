@@ -23,8 +23,8 @@ public:
 	void steer(double heading);
 private:
 	MotionControlMode mode;
-	static constexpr char* DRIVE_CMD = "drive";
-	static constexpr char* STEER_H_CMD = "steerh";
+	static constexpr const char* DRIVE_CMD = "drive";
+	static constexpr const char* STEER_H_CMD = "steerh";
 	static constexpr double THROTTLE_MAX = 100.0;
 	static constexpr double THROTTLE_MIN = 0.0;
 	static constexpr double HEADING_MAX = 90.0;

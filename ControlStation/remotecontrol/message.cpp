@@ -3,12 +3,24 @@
 #define CONTROL_CHAR(x) 
 
 #include <iostream>
+#include <string.h>
 #include <boost/asio.hpp>
 #include <boost/array.hpp>
 
 using boost::asio::ip::tcp;
 
 namespace ctrl {
+    
+Message::Message(const char* typeName, char* data, size_t dataLen) {
+	if (typeName == nullptr) {
+		typeNameLen = 0;
+	} else {
+		typeNameLen = strlen(typeName);
+	}
+	this->typeName = typeName;
+	this->data = data;
+	this->dataLen = dataLen;
+}
 
 char* const Message::serialize(size_t* size) {
 	*size = 3 + dataLen + typeNameLen;
