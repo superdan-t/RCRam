@@ -12,7 +12,12 @@ if (Boost_FOUND)
 	link_directories( ${Boost_LIBRARY_DIRS} )
 	if (WIN32)
 		# Target Windows 7 for compatiblity
+		message("Boost target is WIN32")
 		add_definitions(-D_WIN32_WINNT=0x0601)
+	else()
+		message("Boost target is POSIX")
+		find_package(Threads REQUIRED)
+		link_libraries( ${CMAKE_THREAD_LIBS_INIT} )
 	endif()
 endif()
 
@@ -29,7 +34,7 @@ file (GLOB remotecontrol_SRC
 	"remotecontrol/*.cpp"
 )
 
-add_executable (ControlStation "ControlStation.cpp" ${devconsole_SRC} ${remotecontrol_SRC} ) # WIN32
+add_executable (ControlStation "ControlStation.cpp" ${devconsole_SRC} ${remotecontrol_SRC} )
 #add_subdirectory( glfw-3.3.2 )
 #add_subdirectory( wxWidgets-3.1.3 )
 #find_package(OpenGL REQUIRED)
