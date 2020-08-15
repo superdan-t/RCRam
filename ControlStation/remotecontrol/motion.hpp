@@ -1,6 +1,6 @@
 #pragma once
 
-#include "message.hpp"
+#include "network/message.hpp"
 
 namespace ctrl {
 
