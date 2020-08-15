@@ -1,10 +1,4 @@
-﻿# CMakeList.txt : CMake project for ControlStation, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.8)
-cmake_policy(SET CMP0074 NEW)
-
-project ("ControlStation")
+﻿cmake_policy(SET CMP0074 NEW)
 
 find_package(Boost REQUIRED) 
 if (Boost_FOUND)
