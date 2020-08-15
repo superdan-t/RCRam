@@ -9,7 +9,7 @@ class InputException {
 public:
 	InputError error;
 	std::string badInput;
-	InputException(InputError error, std::string& badInput) {
+	InputException(InputError error, std::string badInput) {
 		this->error = error;
 		this->badInput = badInput;
 	};
