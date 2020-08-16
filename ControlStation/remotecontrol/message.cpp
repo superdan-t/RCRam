@@ -1,7 +1,5 @@
 #include "message.hpp"
 
-#define CONTROL_CHAR(x) 
-
 #include <iostream>
 #include <string.h>
 #include <boost/asio.hpp>
