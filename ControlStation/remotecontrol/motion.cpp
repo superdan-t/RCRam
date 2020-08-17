@@ -2,7 +2,7 @@
 
 namespace ctrl {
 
-Motion::Motion(MessageExchange& msg) {
+Motion::Motion(com::MessageExchange& msg) {
 	this->msg = &msg;
 }
 
@@ -12,7 +12,7 @@ void Motion::drive(MotionDirection direction, double throttle) {
 	char* data = new char[1 + sizeof(double)];
 	data[0] = (char)direction;
 	data[1] = throttle;
-	msg->send(Message(DRIVE_CMD, data, 1 + sizeof(double)));
+	msg->send(com::Message(DRIVE_CMD, data, 1 + sizeof(double)));
 }
 
 void Motion::steer(double heading) {
@@ -20,7 +20,7 @@ void Motion::steer(double heading) {
 	else if (heading < HEADING_MIN) heading = HEADING_MIN;
 	char* data = new char[sizeof(double)];
 	data[0] = heading;
-	msg->send(Message(STEER_H_CMD, data, sizeof(double)));
+	msg->send(com::Message(STEER_H_CMD, data, sizeof(double)));
 }
 
 } // end namespace ctrl

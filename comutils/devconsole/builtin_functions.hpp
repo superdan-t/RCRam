@@ -7,7 +7,7 @@
 #include <vector>
 #include <iostream>
 
-namespace ctrl {
+namespace com {
 
 class Console;
 
@@ -84,4 +84,4 @@ void defaultInputErrorCallback(Console* console, InputError error, std::string& 
 	}
 }
 
-} // end namespace ctrl
+} // end namespace com

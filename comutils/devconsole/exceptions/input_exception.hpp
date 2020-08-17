@@ -4,7 +4,7 @@
 
 #include <string>
 
-namespace ctrl {
+namespace com {
 class InputException {
 public:
 	InputError error;
