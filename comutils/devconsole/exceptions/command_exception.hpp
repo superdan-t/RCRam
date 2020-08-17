@@ -3,11 +3,11 @@
 #include <exception>
 #include <string>
 
-namespace ctrl {
+namespace com {
 
 class CommandException : public std::exception {
 public: 
 	virtual std::string getMessage() const = 0;
 };
 
-} // end namespace ctrl
+} // end namespace com

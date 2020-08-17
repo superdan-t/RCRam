@@ -9,7 +9,7 @@
 
 using boost::asio::ip::tcp;
 
-namespace ctrl {
+namespace com {
     
 Message::Message(const char* typeName, char* data, size_t dataLen) {
 	if (typeName == nullptr) {
@@ -135,4 +135,4 @@ MessageExchange::~MessageExchange() {
 	tSendMessages.join();
 }
 
-} // end namespace ctrl
+} // end namespace com

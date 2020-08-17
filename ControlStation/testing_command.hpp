@@ -4,13 +4,13 @@
 
 #include <cstdlib>
 
-class TestCommand : public ctrl::Command {
+class TestCommand : public com::Command {
 public:
 	TestCommand() {
 		name = "echot";
 	}
 
-	void execute(ctrl::Console* console, std::vector<std::string>& args) override {
+	void execute(com::Console* console, std::vector<std::string>& args) override {
 		if (args.size() == 0) {
 			*(console->out) << "Hello, world!" << std::endl;
 		}

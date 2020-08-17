@@ -7,7 +7,7 @@
 #include <iterator>
 #include <iostream>
 
-namespace ctrl {
+namespace com {
 
 Console::Console(std::ostream* out, std::ostream* err) {
 	this->out = out;
@@ -20,11 +20,11 @@ Console::Console(std::ostream* out, std::ostream* err) {
 
 void Console::registerCommand(Command* cmd) {
 	if (cmd->name.size() == 0) {
-		throw InvalidNameCommandException(cmd->name, ctrl::InvalidReason::EMPTY);
+		throw InvalidNameCommandException(cmd->name, com::InvalidReason::EMPTY);
 	}
 	for (char& c : cmd->name) {
 		if (!isalnum(c)) {
-			throw InvalidNameCommandException(cmd->name, ctrl::InvalidReason::ALNUM);
+			throw InvalidNameCommandException(cmd->name, com::InvalidReason::ALNUM);
 		}
 	}
 	if (cmds.count(cmd->name) > 0) {
@@ -128,4 +128,4 @@ std::vector<std::string> Console::getArgs(std::string inStr, std::string* cmdNam
 	return args;
 }
 
-} // end namespace ctrl
+} // end namespace com

@@ -1,6 +1,6 @@
 #include "invalid_name_command_exception.hpp"
 
-namespace ctrl {
+namespace com {
 
 InvalidNameCommandException::InvalidNameCommandException(std::string badName, InvalidReason reason) {
 	this->badName = badName;

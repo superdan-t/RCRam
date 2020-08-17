@@ -1,6 +1,6 @@
 #pragma once
 
-namespace ctrl {
+namespace com {
 
 enum InputError {
 	UNKNOWN,

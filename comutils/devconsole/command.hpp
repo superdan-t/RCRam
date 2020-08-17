@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-namespace ctrl {
+namespace com {
 
 class Console;
 
@@ -14,4 +14,4 @@ public:
 	virtual std::string getHelp() = 0;
 };
 
-}	// end namespace ctrl
+}	// end namespace com

@@ -1,7 +1,7 @@
 #pragma once
 #include "command_exception.hpp"
 
-namespace ctrl {
+namespace com {
 
 enum InvalidReason {
 	ALNUM,

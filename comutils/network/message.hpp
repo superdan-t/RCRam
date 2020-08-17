@@ -6,7 +6,7 @@
 #include <string>
 #include <boost/asio/buffer.hpp>
 
-namespace ctrl {
+namespace com {
 
 constexpr char ESC = 0x1B;
 constexpr char SOH = 0x01;
@@ -42,4 +42,4 @@ private:
 	void run();
 };
 
-} // end namespace ctrl
+} // end namespace com

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "network/message.hpp"
+#include <network/message.hpp>
 
 namespace ctrl {
 
@@ -17,7 +17,7 @@ enum class MotionDirection {
 
 class Motion {
 public:
-	Motion(MessageExchange& msg);
+	Motion(com::MessageExchange& msg);
 	void setMode(MotionControlMode m);
 	void drive(MotionDirection direction, double throttle);
 	void steer(double heading);
@@ -30,7 +30,7 @@ private:
 	static constexpr double HEADING_MAX = 90.0;
 	static constexpr double HEADING_MIN = -90.0;
 
-	MessageExchange* msg;
+	com::MessageExchange* msg;
 };
 
 } // end namepsace ctrl

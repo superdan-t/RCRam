@@ -24,9 +24,9 @@ int main(void) {
 #include <string.h>
 #include <iostream>
 
-#include "remotecontrol/message.hpp"
+#include <network/message.hpp>
 int main(void) {
-	using namespace ctrl;
+	using namespace com;
 	MessageExchange ex("127.0.0.1", "50446");
 	Message toSend;
 	toSend.data = new char[6];

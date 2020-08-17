@@ -9,7 +9,7 @@
 #include <iostream>
 #include <cstdlib>
 
-namespace ctrl {
+namespace com {
 
 class Console {
 public:
@@ -30,4 +30,4 @@ private:
 	static std::vector<std::string> getArgs(std::string inStr, std::string* cmdName);
 };
 
-} // end namespace ctrl
+} // end namespace com

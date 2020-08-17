@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace ctrl {
+namespace com {
 
 class DuplicateCommandException : public CommandException {
 public:
