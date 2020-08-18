@@ -1,0 +1,3 @@
+[submodule "ControlStation/ext/nanogui"]
+	path = ControlStation/ext/nanogui
+	url = https://github.com/wjakob/nanogui.git
