@@ -11,7 +11,7 @@ public:
 		window_settings() {
 			width = 640;
 			height = 480;
-			monitor = (Monitor) 0;
+			monitor = Monitor::PRIMARY;
 			fullscreen = false;
 		}
 		int width;

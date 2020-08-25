@@ -21,6 +21,7 @@
 #include <nanogui/nanogui.h>
 #include <iostream>
 #include "gui/launcher.hpp"
+#include "gui/main_window.hpp"
 
 int main(void) {
 	GuiSessionConfig config;
@@ -29,8 +30,11 @@ int main(void) {
 		return -1;
 	}
 	
-	
 	Launcher launcher(config);
+
+	MainWindow& mw = MainWindow::createMainWindow(config);
+	mw.setup();
+	mw.mainLoop();
 	
 	glfwTerminate();
 	return 0;
