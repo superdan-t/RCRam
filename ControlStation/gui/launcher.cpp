@@ -73,46 +73,46 @@ Launcher::Launcher(GuiSessionConfig& config) {
 	makePopupCompact(screen, monitorSelect);
 	
 	glfwSetCursorPosCallback(window,
-            [](GLFWwindow *, double x, double y) {
-            screen.cursorPosCallbackEvent(x, y);
-        }
-    );
+			[](GLFWwindow *, double x, double y) {
+			screen.cursorPosCallbackEvent(x, y);
+		}
+	);
 
-    glfwSetMouseButtonCallback(window,
-        [](GLFWwindow *, int button, int action, int modifiers) {
-            screen.mouseButtonCallbackEvent(button, action, modifiers);
-        }
-    );
+	glfwSetMouseButtonCallback(window,
+		[](GLFWwindow *, int button, int action, int modifiers) {
+			screen.mouseButtonCallbackEvent(button, action, modifiers);
+		}
+	);
 
-    glfwSetKeyCallback(window,
-        [](GLFWwindow *, int key, int scancode, int action, int mods) {
-            screen.keyCallbackEvent(key, scancode, action, mods);
-        }
-    );
+	glfwSetKeyCallback(window,
+		[](GLFWwindow *, int key, int scancode, int action, int mods) {
+			screen.keyCallbackEvent(key, scancode, action, mods);
+		}
+	);
 
-    glfwSetCharCallback(window,
-        [](GLFWwindow *, unsigned int codepoint) {
-            screen.charCallbackEvent(codepoint);
-        }
-    );
+	glfwSetCharCallback(window,
+		[](GLFWwindow *, unsigned int codepoint) {
+			screen.charCallbackEvent(codepoint);
+		}
+	);
 
-    glfwSetDropCallback(window,
-        [](GLFWwindow *, int count, const char **filenames) {
-            screen.dropCallbackEvent(count, filenames);
-        }
-    );
+	glfwSetDropCallback(window,
+		[](GLFWwindow *, int count, const char **filenames) {
+			screen.dropCallbackEvent(count, filenames);
+		}
+	);
 
-    glfwSetScrollCallback(window,
-        [](GLFWwindow *, double x, double y) {
-            screen.scrollCallbackEvent(x, y);
-       }
-    );
+	glfwSetScrollCallback(window,
+		[](GLFWwindow *, double x, double y) {
+			screen.scrollCallbackEvent(x, y);
+	   }
+	);
 
-    glfwSetFramebufferSizeCallback(window,
-        [](GLFWwindow *, int width, int height) {
-            screen.resizeCallbackEvent(width, height);
-        }
-    );
+	glfwSetFramebufferSizeCallback(window,
+		[](GLFWwindow *, int width, int height) {
+			screen.resizeCallbackEvent(width, height);
+		}
+	);
 	
 	while (!glfwWindowShouldClose(window)) {
 		glfwWaitEvents();
@@ -123,6 +123,7 @@ Launcher::Launcher(GuiSessionConfig& config) {
 		screen.drawWidgets();
 		glfwSwapBuffers(window);
 	}
+	glfwDestroyWindow(window);
 	
 }
 
