@@ -29,12 +29,14 @@ int main(void) {
 	if (!glfwInit()) {
 		return -1;
 	}
-	
-	Launcher launcher(config);
 
-	MainWindow& mw = MainWindow::createMainWindow(config);
-	mw.setup();
-	mw.mainLoop();
+	Launcher launch(config);
+
+	if (!launch.isCancelled()) {
+		MainWindow& mw = MainWindow::createMainWindow(config);
+		mw.setup();
+		mw.mainLoop();
+	}
 	
 	glfwTerminate();
 	return 0;

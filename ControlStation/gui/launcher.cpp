@@ -62,7 +62,7 @@ Launcher::Launcher(GuiSessionConfig& config) {
 	
 	form->addVariable("Fullscreen", config.window.fullscreen);
 	
-	form->addButton("Start", [&window]() { glfwSetWindowShouldClose(window, GL_TRUE); } );
+	form->addButton("Start", [&window, this]() { cancelled = false; glfwSetWindowShouldClose(window, GL_TRUE); });
 	
 	screen.setVisible(true);
 	screen.performLayout();
