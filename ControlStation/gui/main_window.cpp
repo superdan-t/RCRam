@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "console_window.hpp"
+
 MainWindow* MainWindow::instance = nullptr;
 
 MainWindow& MainWindow::createMainWindow(GuiSessionConfig& config) {

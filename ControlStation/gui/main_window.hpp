@@ -1,6 +1,7 @@
 #pragma once
 
 #include <nanogui/nanogui.h>
+#include <devconsole/console.hpp>
 
 #include "gui_config.hpp"
 
