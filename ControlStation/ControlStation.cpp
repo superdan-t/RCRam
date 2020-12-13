@@ -23,8 +23,12 @@
 #if   LAUNCH == 0
 #include <nanogui/nanogui.h>
 #include <devconsole/console.hpp>
+#include <boost/filesystem.hpp>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
 #include <iostream>
 #include <thread>
+#include <filesystem>
 #include "gui/launcher.hpp"
 #include "gui/main_window.hpp"
 #elif LAUNCH == 1
@@ -38,13 +42,19 @@
 
 int main(void) {
 #if   LAUNCH == 0
-	GuiSessionConfig config;
+	boost::property_tree::ptree pt;
+	if (boost::filesystem::exists("settings.json")) {
+		boost::property_tree::json_parser::read_json("settings.json", pt);
+	}
+	GuiSessionConfig config(pt);
 	
 	if (!glfwInit()) {
 		return -1;
 	}
 
 	Launcher launch(config);
+	config.save(pt);
+	boost::property_tree::json_parser::write_json("settings.json", pt);
 
 	if (!launch.isCancelled()) {
 		MainWindow& mw = MainWindow::createMainWindow(config);
@@ -61,7 +71,6 @@ int main(void) {
 
 		mw.mainLoop();
 		consoleThread.join();
-
 	}
 	
 	glfwTerminate();
