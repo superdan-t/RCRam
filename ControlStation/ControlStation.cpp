@@ -18,9 +18,6 @@
  * 
  */
 
-#define LAUNCH 0
-
-#if   LAUNCH == 0
 #include <nanogui/nanogui.h>
 #include <devconsole/console.hpp>
 #include <boost/filesystem.hpp>
@@ -31,17 +28,8 @@
 #include <filesystem>
 #include "gui/launcher.hpp"
 #include "gui/main_window.hpp"
-#elif LAUNCH == 1
-#include "remotecontrol/video_example.hpp"
-#elif LAUNCH == 2
-#include "gui/widgets/formatted_text_buf.hpp"
-#include <devconsole/console.hpp>
-#include <sstream>
-#include <iostream>
-#endif
 
 int main(void) {
-#if   LAUNCH == 0
 	boost::property_tree::ptree pt;
 	if (boost::filesystem::exists("settings.json")) {
 		boost::property_tree::json_parser::read_json("settings.json", pt);
@@ -75,30 +63,4 @@ int main(void) {
 	
 	glfwTerminate();
 	return 0;
-#elif LAUNCH == 1
-	std::string fname;
-	std::cin >> fname;
-	cmain(fname.c_str());
-	return 0;
-#elif LAUNCH == 2
-	std::ostringstream out;
-	com::Console console(&out, &out);
-	FormattedTextBuf textDisplay(500);
-
-	for (;;) {
-		std::string input;
-		std::getline(std::cin, input);
-		console.readInput(input);
-		textDisplay.write(out.str());
-		out.str("");
-		out.clear();
-		size_t txtSize = textDisplay.size();
-		for (size_t i = 0; i < txtSize; ++i) {
-			std::cout << textDisplay[i];
-		}
-		std::cout << std::endl;
-	}
-	return 0;
-#endif
-
 }
