@@ -1,7 +1,10 @@
 # RCRam
-Full project for turning a toy RC truck (New Bright Dodge RAM) into a more advanced remote vehicle with a FPV camera, partial self-driving capabilities, and light effects. Big WIP.
+Full project for turning a toy RC truck (New Bright Dodge RAM) into a more advanced remote vehicle with a FPV camera, partial self-driving capabilities, and light effects.
 
-Since this is in-progress and I have no idea where this project will end up, I am reserving all rights to the programs in this repository to the maximum extent permitted by dependency licenses. As of now, that is 100% of this repository.
+## Status
+
+I joined the [Binghamton University Rover Team](https://github.com/BinghamtonRover) shortly after starting this project, so I did not maintain any personal rover projects during my tenure there. This project barely has any concrete functionality, is out-of-date, and doesn't meet my modern standards for code testing and quality. Though I've resumed some personal rover projects, this software stack will no longer be updated.
+
 ## Components
 This repository has multiple modules which run in different places and target different platforms.
 ### Control Station
